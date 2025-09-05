@@ -1,0 +1,23 @@
+namespace PropsFB; 
+
+enum PropType : byte { Bool = 0, UInt64 = 1, String = 2 } 
+
+table PropDict {
+  name  : string;
+  scope : string;
+  key   : string; 
+  value : string;
+}
+
+table PropsRow {
+  prop_type     : PropType;
+  prop_uid      : ulong;
+  parent_uid    : ulong;
+  key_value     : PropDict;
+}
+
+table PropsPool {
+  props : [PropsRow];
+}
+
+root_type PropsPool;
